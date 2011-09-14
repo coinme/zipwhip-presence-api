@@ -16,6 +16,25 @@ public class Presence implements Serializable {
     // we control the serialisation version
     static final long serialVersionUID = 10375439476839415L;
 
+    /**
+     * A protected constructor for use by the builder.
+     * @param builder The builder from which to construct this Presence
+     */
+    protected Presence(PresenceBuilder builder) {
+        ip = builder.ip;
+        address = builder.address;
+        category = builder.category;
+        userAgent = builder.userAgent;
+        status = builder.status;
+        connected = builder.connected;
+        subscriptionId = builder.subscriptionId;
+        lastActive = builder.lastActive;
+        extraInfo = builder.extraInfo;
+    }
+
+    /**
+     * IP address of the client
+     */
     String ip;
 
     /**
@@ -54,6 +73,9 @@ public class Presence implements Serializable {
     */
     Date lastActive;
 
+    /**
+     * A way to add undefined key/value data.
+     */
     PresenceExtraInfo extraInfo;
 
     public Presence() {
@@ -130,126 +152,6 @@ public class Presence implements Serializable {
 
     public void setExtraInfo(PresenceExtraInfo extraInfo) {
         this.extraInfo = extraInfo;
-    }
-
-    /**
-     * A private constructor for use by the builder.
-     * @param builder The builder from which to construct this Presence
-     */
-    private Presence(Builder builder) {
-        ip = builder.ip;
-        address = builder.address;
-        category = builder.category;
-        userAgent = builder.userAgent;
-        status = builder.status;
-        connected = builder.connected;
-        subscriptionId = builder.subscriptionId;
-        lastActive = builder.lastActive;
-        extraInfo = builder.extraInfo;
-    }
-
-    public static class Builder {
-
-        private String ip;
-        private ClientAddress address;
-        private PresenceCategory category = PresenceCategory.NONE;
-        private UserAgent userAgent;
-        private PresenceStatus status;
-        private Boolean connected;
-        private String subscriptionId;
-        private Date lastActive;
-        private PresenceExtraInfo extraInfo;
-
-        public Builder ip(String ip) {
-            this.ip = ip;
-            return this;
-        }
-
-        public Builder clientAddressClientId(String clientId) {
-            address = new ClientAddress(clientId);
-            return this;
-        }
-
-        public Builder category(PresenceCategory category) {
-            this.category = category;
-            return this;
-        }
-
-        public Builder userAgentMakeModel(String makeModel) {
-            if (userAgent == null) {
-                userAgent = new UserAgent();
-            }
-            userAgent.makeModel = makeModel;
-            return this;
-        }
-
-        public Builder userAgentBuild(String build) {
-            if (userAgent == null) {
-                userAgent = new UserAgent();
-            }
-            userAgent.build = build;
-            return this;
-        }
-
-        public Builder userAgentProductName(ProductLine name) {
-            if (userAgent == null) {
-                userAgent = new UserAgent();
-                userAgent.product = new Product();
-            }
-            userAgent.product.name = name;
-            return this;
-        }
-
-        public Builder userAgentProductVersion(String version) {
-            if (userAgent == null) {
-                userAgent = new UserAgent();
-                userAgent.product = new Product();
-            }
-            userAgent.product.version = version;
-            return this;
-        }
-
-        public Builder userAgentProductBuild(String build) {
-            if (userAgent == null) {
-                userAgent = new UserAgent();
-                userAgent.product = new Product();
-            }
-            userAgent.product.build = build;
-            return this;
-        }
-
-        public Builder status(PresenceStatus status) {
-            this.status = status;
-            return this;
-        }
-
-        public Builder isConnected(boolean connected) {
-            this.connected = connected;
-            return this;
-        }
-
-        public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = subscriptionId;
-            return this;
-        }
-
-        public Builder lastActive(Date lastActive) {
-            this.lastActive = lastActive;
-            return this;
-        }
-
-        public Builder userExtra(String key, Object value) {
-            if (extraInfo == null) {
-                extraInfo = new PresenceExtraInfo();
-            }
-            extraInfo.put(key, value);
-            return this;
-        }
-
-        public Presence build() {
-            return new Presence(this);
-        }
-
     }
 
 }
