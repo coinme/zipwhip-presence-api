@@ -1,7 +1,5 @@
 package com.zipwhip.signals.address;
 
-import com.zipwhip.signals.util.Serializer;
-import com.zipwhip.util.Factory;
 import com.zipwhip.util.StringUtil;
 
 /**
@@ -10,7 +8,7 @@ import com.zipwhip.util.StringUtil;
  * Date: Dec 11, 2010
  * Time: 5:50:25 PM
  */
-public class ClientAddress extends ClientAddressBase implements OneToOneAddress, Factory<ClientAddress>, Serializer<ClientAddress> {
+public class ClientAddress extends ClientAddressBase {
 
 	private static final long serialVersionUID = 30375439405816413L;
 
@@ -64,4 +62,5 @@ public class ClientAddress extends ClientAddressBase implements OneToOneAddress,
 
 		return toString;
 	}
+
 }

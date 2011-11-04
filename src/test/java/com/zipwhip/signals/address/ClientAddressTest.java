@@ -1,6 +1,8 @@
 package com.zipwhip.signals.address;
 
-import junit.framework.Assert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -11,19 +13,19 @@ import org.junit.Test;
  */
 public class ClientAddressTest {
 
-    @Test
-    public void testEquals() throws Exception {
+	@Test
+	public void testEquals()
+	{
+		ClientAddress ca1 = new ClientAddress("123456");
+		ClientAddress ca2 = new ClientAddress("654321");
 
-        ClientAddress ca1 = new ClientAddress("123456");
-        ClientAddress ca2 = new ClientAddress("654321");
+		assertTrue(ca1.equals(ca1));
+		assertFalse(ca1.equals(null));
+		assertFalse(ca1.equals(ca2));
+		assertFalse(ca2.equals(ca1));
 
-        Assert.assertTrue(ca1.equals(ca1));
-        Assert.assertFalse(ca1.equals(null));
-        Assert.assertFalse(ca1.equals(ca2));
-        Assert.assertFalse(ca2.equals(ca1));
-
-        ca2.setClientId(ca1.getClientId());
-        Assert.assertTrue(ca1.equals(ca2));
-    }
+		ca2.setClientId(ca1.getClientId());
+		assertTrue(ca1.equals(ca2));
+	}
 
 }

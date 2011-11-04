@@ -1,7 +1,7 @@
 package com.zipwhip.signals.message;
 
 import com.zipwhip.signals.app.Message;
-import com.zipwhip.signals.util.Serializer;
+import com.zipwhip.signals.util.SignalsSerializer;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,5 +11,5 @@ import com.zipwhip.signals.util.Serializer;
  * 
  * Serializes messages
  */
-public interface MessageSerializer extends Serializer<Message> {
+public interface MessageSerializer extends SignalsSerializer<Message> {
 }

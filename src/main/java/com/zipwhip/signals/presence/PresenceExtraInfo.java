@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class PresenceExtraInfo extends HashMap<String, Object> implements Serializable {
 
-    // we control the serialisation version
-    static final long serialVersionUID = 30194439276838327L;
+	// we control the serialisation version
+	private static final long serialVersionUID = 30194439276838327L;
 
 }

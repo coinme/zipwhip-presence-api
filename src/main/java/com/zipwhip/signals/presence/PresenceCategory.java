@@ -13,6 +13,6 @@ import java.io.Serializable;
  */
 public enum PresenceCategory implements Serializable {
 
-    Phone, Browser, Tablet, NONE
+    Phone, Browser, Tablet, Desktop, TV, Car, NONE
 
 }

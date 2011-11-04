@@ -3,8 +3,6 @@ package com.zipwhip.signals.presence;
 import java.io.Serializable;
 import java.util.HashMap;
 
-import com.zipwhip.signals.app.PresenceRecord;
-
 /**
  * Created by IntelliJ IDEA.
  * User: David Davis

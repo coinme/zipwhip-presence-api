@@ -1,9 +1,9 @@
 package com.zipwhip.signals.presence;
 
-import com.zipwhip.signals.address.ClientAddress;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import com.zipwhip.signals.address.ClientAddress;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,145 +13,129 @@ import java.util.Date;
  */
 public class Presence implements Serializable {
 
-    // we control the serialisation version
-    static final long serialVersionUID = 10375439476839415L;
+	// we control the serialisation version
+	private static final long serialVersionUID = 10375439476839415L;
 
-    /**
-     * A protected constructor for use by the builder.
-     * @param builder The builder from which to construct this Presence
-     */
-    protected Presence(PresenceBuilder builder) {
-        ip = builder.ip;
-        address = builder.address;
-        category = builder.category;
-        userAgent = builder.userAgent;
-        status = builder.status;
-        connected = builder.connected;
-        subscriptionId = builder.subscriptionId;
-        lastActive = builder.lastActive;
-        extraInfo = builder.extraInfo;
-    }
+	private String ip;
 
-    /**
-     * IP address of the client
-     */
-    String ip;
+	/**
+	 * A way to uniquely call you
+	 */
+	private ClientAddress address;
 
-    /**
-     * A way to uniquely call you
-     */
-    ClientAddress address;
+	/**
+	 * Tablet, Phone, Browser, none
+	 */
+	private PresenceCategory category = PresenceCategory.NONE;
 
-    /**
-     * Tablet, Phone, Browser, none
-     */
-    PresenceCategory category = PresenceCategory.NONE;
+	/**
+	 * Some user agent string like a browser, that tells all apps installed and versions of apps.
+	 */
+	private UserAgent userAgent;
 
-    /**
-     * Some user agent string like a browser, that tells all apps installed and versions of apps.
-     */
-    UserAgent userAgent;
+	/**
+	 * Status - online, busy, away, invisible, offline
+	 */
 
-    /**
-     * Status - online, busy, away, invisible, offline
-     */
+	private PresenceStatus status;
 
-    PresenceStatus status;
+	/**
+	 * Connected
+	 */
+	private Boolean connected;
 
-    /**
-     * Connected
-     */
-    Boolean connected;
+	/**
+	 * The subscriptionId
+	 */
+	private String subscriptionId;
 
-    /**
-     * The subscriptionId
-     */
-    String subscriptionId;
+	/*
+	 * Last active Date+Time
+	 */
+	private Date lastActive;
 
-    /*
-    * Last active Date+Time
-    */
-    Date lastActive;
+	private PresenceExtraInfo extraInfo;
 
-    /**
-     * A way to add undefined key/value data.
-     */
-    PresenceExtraInfo extraInfo;
+	public Presence() {
 
-    public Presence() {
+	}
 
-    }
+	public PresenceStatus getStatus() {
+		return status;
+	}
 
-    public PresenceStatus getStatus() {
-        return status;
-    }
+	public void setStatus(PresenceStatus status) {
+		this.status = status;
+	}
 
-    public void setStatus(PresenceStatus status) {
-        this.status = status;
-    }
+	public Boolean getConnected() {
+		return connected;
+	}
 
-    public Boolean getConnected() {
-        return connected;
-    }
+	public void setConnected(Boolean connected) {
+		this.connected = connected;
+	}
 
-    public void setConnected(Boolean connected) {
-        this.connected = connected;
-    }
+	public String getSubscriptionId() {
+		return subscriptionId;
+	}
 
-    public String getSubscriptionId() {
-        return subscriptionId;
-    }
+	public void setSubscriptionId(String subscriptionId) {
+		this.subscriptionId = subscriptionId;
+	}
 
-    public void setSubscriptionId(String subscriptionId) {
-        this.subscriptionId = subscriptionId;
-    }
+	public String getIp() {
+		return ip;
+	}
 
-    public String getIp() {
-        return ip;
-    }
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
+	public ClientAddress getAddress() {
+		return address;
+	}
 
-    public ClientAddress getAddress() {
-        return address;
-    }
+	public void setAddress(ClientAddress address) {
+		this.address = address;
+	}
 
-    public void setAddress(ClientAddress address) {
-        this.address = address;
-    }
+	public PresenceCategory getCategory() {
+		return category;
+	}
 
-    public PresenceCategory getCategory() {
-        return category;
-    }
+	public void setCategory(PresenceCategory category) {
+		this.category = category;
+	}
 
-    public void setCategory(PresenceCategory category) {
-        this.category = category;
-    }
+	public UserAgent getUserAgent() {
+		return userAgent;
+	}
 
-    public UserAgent getUserAgent() {
-        return userAgent;
-    }
+	public void setUserAgent(UserAgent userAgent) {
+		this.userAgent = userAgent;
+	}
 
-    public void setUserAgent(UserAgent userAgent) {
-        this.userAgent = userAgent;
-    }
+	/**
+	 * We clone date because returning a reference to a mutable object value stored in one of the object's fields exposes
+	 * the internal representation of the object. If instances are accessed by untrusted code, and unchecked changes to
+	 * the mutable object would compromise security or other important properties, you will need to do something different.
+	 * Returning a new copy of the object is better approach in many situations.
+	 * EI_EXPOSE_REP
+	 */
+	public Date getLastActive() {
+		return (Date) lastActive.clone();
+	}
 
-    public Date getLastActive() {
-        return lastActive;
-    }
+	public void setLastActive(Date lastActive) {
+		this.lastActive = (Date) lastActive.clone();
+	}
 
-    public void setLastActive(Date lastActive) {
-        this.lastActive = lastActive;
-    }
+	public PresenceExtraInfo getExtraInfo() {
+		return extraInfo;
+	}
 
-    public PresenceExtraInfo getExtraInfo() {
-        return extraInfo;
-    }
-
-    public void setExtraInfo(PresenceExtraInfo extraInfo) {
-        this.extraInfo = extraInfo;
-    }
-
+	public void setExtraInfo(PresenceExtraInfo extraInfo) {
+		this.extraInfo = extraInfo;
+	}
 }

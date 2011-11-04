@@ -3,9 +3,10 @@ package com.zipwhip.signals.address;
 import java.util.Map;
 
 import com.zipwhip.signals.message.MessageSerializer;
+import com.zipwhip.signals.util.EncoderUtil;
+import com.zipwhip.signals.util.SignalsFactory;
+import com.zipwhip.signals.util.SignalsSerializer;
 import com.zipwhip.util.CollectionUtil;
-import com.zipwhip.util.Factory;
-import com.zipwhip.util.Serializer;
 import com.zipwhip.util.StringUtil;
 
 /**
@@ -16,7 +17,7 @@ import com.zipwhip.util.StringUtil;
  * <p/>
  * To all consumers of a given channel.
  */
-public class ChannelAddress extends AddressBase implements OneToManyAddress, Factory<ChannelAddress>, Serializer<ChannelAddress> {
+public class ChannelAddress extends AddressBase implements OneToManyAddress, SignalsFactory<ChannelAddress>, SignalsSerializer<ChannelAddress> {
 
 	private static final long serialVersionUID = 1L;
 	private static final String CHANNEL_KEY = "channel";
@@ -64,7 +65,8 @@ public class ChannelAddress extends AddressBase implements OneToManyAddress, Fac
 	}
 
 	@Override
-	public ChannelAddress create(Map properties) {
+	public ChannelAddress create(Map<String, Object> properties)
+	{
 		return new ChannelAddress(CollectionUtil.getString(properties, CHANNEL_KEY));
 	}
 

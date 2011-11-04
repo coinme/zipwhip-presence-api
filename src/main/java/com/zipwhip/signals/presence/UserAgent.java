@@ -14,52 +14,53 @@ import java.io.Serializable;
  */
 public class UserAgent implements Serializable {
 
-    /**
-     * The make/model of the device, in the case of a browser it will be NULL
-     *
-     * (hardware)
-     */
-    String makeModel;
-    /**
-     * The OS build version
-     * A json string with these key/val pairs
-     * (for example on the phone)
-     * android.os.Build.DEVICE
-     * android.os.Build.HARDWARE
-     * android.os.Build.DISPLAY
-     *
-     * (software)
-     */
-    String build;
-    /**
-     * Software on the phone/browser
-     * eg.
-     * ZIPGROUPS, DEVICE_CARBON, TABLET_TEXTER, PEEPS
-     * and version number
-     */
-    Product product;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * The make/model of the device, in the case of a browser it will be NULL
+	 * 
+	 * (hardware)
+	 */
+	private String makeModel;
+	/**
+	 * The OS build version
+	 * A json string with these key/val pairs
+	 * (for example on the phone)
+	 * android.os.Build.DEVICE
+	 * android.os.Build.HARDWARE
+	 * android.os.Build.DISPLAY
+	 *
+	 * (software)
+	 */
+	private String build;
+	/**
+	 * Software on the phone/browser
+	 * eg.
+	 * ZIPGROUPS, DEVICE_CARBON, TABLET_TEXTER, PEEPS
+	 * and version number
+	 */
+	private Product product;
 
-    public String getMakeModel() {
-        return makeModel;
-    }
+	public String getMakeModel() {
+		return makeModel;
+	}
 
-    public void setMakeModel(String makeModel) {
-        this.makeModel = makeModel;
-    }
+	public void setMakeModel(String makeModel) {
+		this.makeModel = makeModel;
+	}
 
-    public String getBuild() {
-        return build;
-    }
+	public String getBuild() {
+		return build;
+	}
 
-    public void setBuild(String build) {
-        this.build = build;
-    }
+	public void setBuild(String build) {
+		this.build = build;
+	}
 
-    public Product getProduct() {
-        return product;
-    }
+	public Product getProduct() {
+		return product;
+	}
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 }

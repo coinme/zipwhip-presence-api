@@ -3,51 +3,53 @@ package com.zipwhip.signals.presence;
 import java.io.Serializable;
 
 /**
-* Created by IntelliJ IDEA.
-* User: Michael
-* Date: 6/28/11
-* Time: 3:40 PM
-*/
+ * Created by IntelliJ IDEA.
+ * User: Michael
+ * Date: 6/28/11
+ * Time: 3:40 PM
+ */
 public class Product implements Serializable {
 
-    /**
-     * This is the friendly name for the software on the phone/browser
-     * e.g.  ZIPGROUPS, DEVICE_CARBON, TABLET_TEXTER, PEEPS
-     */
-    ProductLine name;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Version of the software
-     */
-    String version;
+	/**
+	 * This is the friendly name for the software on the phone/browser
+	 * e.g.  ZIPGROUPS, DEVICE_CARBON, TABLET_TEXTER, PEEPS
+	 */
+	private ProductLine name;
 
-    /**
-     * Aka the build of the software that will
-     * correlate to a set of packages
-     */
-    String build;
+	/**
+	 * Version of the software
+	 */
+	private String version;
 
-    public ProductLine getName() {
-        return name;
-    }
+	/**
+	 * Aka the build of the software that will
+	 * correlate to a set of packages
+	 */
+	private String build;
 
-    public void setName(ProductLine name) {
-        this.name = name;
-    }
+	public ProductLine getName() {
+		return name;
+	}
 
-    public String getVersion() {
-        return version;
-    }
+	public void setName(ProductLine name) {
+		this.name = name;
+	}
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+	public String getVersion() {
+		return version;
+	}
 
-    public String getBuild() {
-        return build;
-    }
+	public void setVersion(String version) {
+		this.version = version;
+	}
 
-    public void setBuild(String build) {
-        this.build = build;
-    }
+	public String getBuild() {
+		return build;
+	}
+
+	public void setBuild(String build) {
+		this.build = build;
+	}
 }

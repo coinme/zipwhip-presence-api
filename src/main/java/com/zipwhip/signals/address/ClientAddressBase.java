@@ -4,9 +4,9 @@ import java.util.Map;
 
 import com.zipwhip.signals.message.MessageSerializer;
 import com.zipwhip.signals.util.EncoderUtil;
-import com.zipwhip.signals.util.Serializer;
+import com.zipwhip.signals.util.SignalsFactory;
+import com.zipwhip.signals.util.SignalsSerializer;
 import com.zipwhip.util.CollectionUtil;
-import com.zipwhip.util.Factory;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,13 +15,14 @@ import com.zipwhip.util.Factory;
  * Time: 1:55 PM
  *
  */
-public abstract class ClientAddressBase extends AddressBase implements OneToOneAddress, Factory<ClientAddress>, Serializer<ClientAddress> {
+public abstract class ClientAddressBase extends AddressBase implements OneToOneAddress, SignalsFactory<ClientAddress>, SignalsSerializer<ClientAddress> {
 
 	private static final long serialVersionUID = 1L;
 	private static final String KEY_CLIENT_ID = "clientId";
 
 	@Override
-	public ClientAddress create(Map properties) {
+	public ClientAddress create(Map<String, Object> properties)
+	{
 		return new ClientAddress(CollectionUtil.getString(properties, KEY_CLIENT_ID));
 	}
 
