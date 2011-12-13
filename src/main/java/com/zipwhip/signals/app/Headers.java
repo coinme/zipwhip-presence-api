@@ -1,5 +1,6 @@
 package com.zipwhip.signals.app;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +15,9 @@ import com.zipwhip.util.StringUtil;
  * 
  * Message headers, useful for routing.
  */
-public class Headers implements MapSerializable {
+public class Headers implements MapSerializable, Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private static final String KEY_VERSION = "version";
 	private static final String KEY_SUBSCRIPTION_ID = "subscriptionId";
 	private static final String KEY_CLIENT_ID = "clientId";

@@ -1,5 +1,7 @@
 package com.zipwhip.signals.app;
 
+import java.io.Serializable;
+
 import com.zipwhip.signals.address.Address;
 
 /**
@@ -11,7 +13,7 @@ import com.zipwhip.signals.address.Address;
  * A basic class that is sent between actors. Every message must have a command and an address that dictates who the message is destined
  * for.
  */
-public interface Message  {
+public interface Message extends Serializable {
 
 	/**
 	 * Where is this message going to!
