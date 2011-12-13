@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class UserAgent implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -3759346394112106244L;
 	/**
 	 * The make/model of the device, in the case of a browser it will be NULL
 	 * 

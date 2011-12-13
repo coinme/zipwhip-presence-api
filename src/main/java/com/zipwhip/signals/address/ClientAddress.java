@@ -10,7 +10,7 @@ import com.zipwhip.util.StringUtil;
  */
 public class ClientAddress extends ClientAddressBase {
 
-	private static final long serialVersionUID = 30375439405816413L;
+	private static final long serialVersionUID = 6712566321988288130L;
 
 	private String clientId;
 	private String toString = null;
