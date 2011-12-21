@@ -18,6 +18,8 @@ public enum ProductLine implements Serializable {
 
     PEEPS,
 
-    WEBSITE
+    WEBSITE,
+
+    DESKTOP_APP
 
 }
