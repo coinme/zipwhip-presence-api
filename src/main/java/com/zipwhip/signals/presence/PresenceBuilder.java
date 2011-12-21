@@ -42,6 +42,7 @@ public class PresenceBuilder {
 	public PresenceBuilder userAgentMakeModel(String makeModel) {
 		if (userAgent == null) {
 			userAgent = new UserAgent();
+			userAgent.setProduct(new Product());
 		}
 		userAgent.setMakeModel(makeModel);
 		return this;
@@ -50,6 +51,7 @@ public class PresenceBuilder {
 	public PresenceBuilder userAgentBuild(String build) {
 		if (userAgent == null) {
 			userAgent = new UserAgent();
+			userAgent.setProduct(new Product());
 		}
 		userAgent.setBuild(build);
 		return this;
