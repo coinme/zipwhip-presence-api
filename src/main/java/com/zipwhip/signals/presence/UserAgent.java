@@ -63,4 +63,41 @@ public class UserAgent implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((build == null) ? 0 : build.hashCode());
+		result = prime * result + ((makeModel == null) ? 0 : makeModel.hashCode());
+		result = prime * result + ((product == null) ? 0 : product.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserAgent other = (UserAgent) obj;
+		if (build == null) {
+			if (other.build != null)
+				return false;
+		} else if (!build.equals(other.build))
+			return false;
+		if (makeModel == null) {
+			if (other.makeModel != null)
+				return false;
+		} else if (!makeModel.equals(other.makeModel))
+			return false;
+		if (product == null) {
+			if (other.product != null)
+				return false;
+		} else if (!product.equals(other.product))
+			return false;
+		return true;
+	}
 }

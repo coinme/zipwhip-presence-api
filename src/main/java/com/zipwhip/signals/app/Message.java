@@ -2,6 +2,7 @@ package com.zipwhip.signals.app;
 
 import java.io.Serializable;
 
+import com.zipwhip.api.signals.commands.Command;
 import com.zipwhip.signals.address.Address;
 
 /**
@@ -36,8 +37,8 @@ public interface Message extends Serializable {
 	 * The body of the message.
 	 * @return
 	 */
-	public Command getCommand();
+	public Command<?> getCommand();
 
-	public void setCommand(Command command);
+	public void setCommand(Command<?> command);
 
 }
